@@ -3,16 +3,16 @@ const util = require('util');
 require('dotenv').config();
 
 const con = mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE_NAME
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    DB: process.env.DB_NAME
 });
 
 const query = util.promisify(con.query).bind(con);
 con.connect(err => {
     if (err) throw err;
-    // console.log("Database Connected!");
+    // console.log("DB Connected!");
 })
 
-module.exports = {con, query}
+module.exports = { con, query }
