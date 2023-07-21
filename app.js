@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const Farmer = require('./models/baseModel');
-
+require('dotenv').config();
 
 app.use(express.static('./public'));
 app.use(express.urlencoded({extended:false}))
@@ -44,4 +44,4 @@ app.get('/search', async (req, res) => {
     }
 })
 
-app.listen(5000, () => console.log('Server started on port 5000'));
+app.listen(process.env.PORT, () => console.log('Server started on port 5000'));
