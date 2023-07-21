@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/output.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/crop2cash_favicon.ico" type="image/x-icon">
+    <title>Crop2Cash | Farmers Search</title>
+</head>
+<body class="sm:mx-[5%] mx-[3%] my-[2%] font-Product_Sans_Regular">
+
+    <div class="flex items-center justify-between">
+        <div class="flex gap-4 items-center align-middle">
+            <div class="relative">
+                <a href="/">
+                    <img src="img/c2c-logo.png" class="w-32" alt="crop2cash logo">
+                </a>
+                <span class="absolute bg-[#e7e7e7] w-[0.15rem] h-[calc(100%+1rem)] -right-2 -top-2"></span>
+            </div>
+            <h1 class="text-xl font-bold">Advanced Farmers Search</h1>
+        </div>
+        <% if(farmers.length){ %>
+            <div>
+                <a href="/add-farmer" class="btn-primary px-4 py-3 flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Add Farmer
+                </a>
+            </div>
+        <% } %>
+    </div>
+
+    <div class="mt-16" id="search">
+        <div class="mt-6">
+            <div class="flex items-start gap-3 relative" id="search_queries">
+                <div>
+                    <input list="categories" name="category" id="_category" placeholder="Category" class="w-40 c2c_input" autocomplete="off">
+                    <datalist id="categories">
+                        <option value="First Name" __val="first_name">
+                        <option value="Last Name" __val="last_name">
+                        <option value="Phone Number" __val="phone_number">
+                        <option value="Age" __val="age">
+                        <option value="Address" __val="address">
+                        <option value="Crops" __val="crops">
+                    </datalist>
+                </div>
+                <div id="gen_keywords_cont">
+                    <div class="flex items-center">
+                        <input class="c2c_input hidden pr-11" id="general_keyword_txt" type="text" placeholder="Search keywords...">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            class="w-6 h-6 hidden relative right-9 cursor-pointer add_keyword_search">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="flex items-center">
+                        <input class="c2c_input hidden pr-11" id="general_keyword_num" type="number" placeholder="Search keywords...">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            class="w-6 h-6 hidden relative right-9 cursor-pointer add_keyword_search">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                </div>
+                <div id="_age_container" class="hidden">
+                    <div class="flex items-center">
+                        <input type="number" class="w-40 c2c_input pr-11 hidden" id="_age" placeholder="Enter Age">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            class="w-6 h-6 hidden relative right-9 cursor-pointer add_keyword_search">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="hidden relative" id="age_range_container">
+                        <input type="number" class="w-40 c2c_input" placeholder="From" id="age_from">
+                        <input type="number" class="w-40 c2c_input" placeholder="To" id="age_to" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            class="w-6 h-6 hidden absolute -right-7 bottom-[0.1rem] cursor-pointer add_keyword_search">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <!-- If select range is not in view reduce the bottom of the divider to -bottom-3 -->
+                    <label for="age_range" class="text-sm flex items-center gap-2 mt-2">
+                        <input type="checkbox" class="c2c_input" id="age_range">
+                        Select Range
+                    </label>
+                </div>
+                <span class="absolute bg-c2c_grey w-full h-[0.1rem] -bottom-2"></span>
+                <a href="/" class="absolute block -bottom-1 right-0 border-2 border-c2c_primary text-c2c_primary px-4 py-1 rounded-3xl">View All</a>
+            </div>
+            <div class="mt-5">
+                <div id="search_preview" class="flex gap-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-8">
+        <div class="flex items-center justify-between mb-5">
+            <div class="relative">
+                <h1 class="text-lg font-semibold uppercase">Farmer's Record</h1>
+                <span class="absolute bg-black w-[2rem] h-[0.1rem]"></span>
+            </div>
+            <div class="flex justify-end">
+                <p class="bg-[#4fe100a3] px-5 py-1 rounded-3xl">4 out of 10 farmers found</p>
+            </div>
+        </div>
+        <% if(farmers.length){ %>
+            <table class="table w-full">
+                <tr>
+                    <th>s/n</th>
+                    <th>first name</th>
+                    <th>last name</th>
+                    <th>phone number</th>
+                    <th>age</th>
+                    <th>address</th>
+                    <th>crops</th>
+                </tr>
+            
+                <% farmers.forEach(function(farmer,indx){ %>
+                    <tr>
+                        <td><%= indx+1 %></td>
+                        <td><%= farmer.first_name %></td>
+                        <td><%= farmer.last_name %></td>
+                        <td><%= farmer.phone_number %></td>
+                        <td><%= farmer.age %></td>
+                        <td><%= farmer.address %></td>
+                        <td><%= farmer.crops %></td>
+                    </tr>
+                <% }) %>
+            </table>
+        <% } else { %>
+            <div class="flex flex-col items-center justify-center">
+                <span class="text-2xl">There are no farmers yet</span>
+                <div>
+                    <a href="/add-farmer" class="btn-primary px-4 py-2 mt-2 flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Add Farmer
+                    </a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>

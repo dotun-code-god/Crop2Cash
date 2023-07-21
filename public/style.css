@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Product_Sans_Regular';
+    src: url('fonts/ProductSans-Regular.ttf');
+}
+@font-face {
+    font-family: 'Product_Sans_Medium';
+    src: url('fonts/ProductSans-Medium.ttf');
+}
+@font-face {
+    font-family: 'Lucida_Caligraphy';
+    src: url('fonts/lucida_calligraphy_italic.ttf');
+}
+
+@layer base {
+    .btn-primary {
+        @apply bg-[linear-gradient(90deg,rgb(151,204,4),rgb(241,211,2))] rounded-3xl text-white
+    }
+    .c2c_input {
+        @apply focus:ring-0 focus:border-[#6b7280] border-[#b3b3b3] placeholder:text-[#a7a7a7]
+    }
+    .c2c_search_preview {
+        @apply bg-c2c_grey px-4 py-2 rounded-3xl text-center text-[#6b6b6b] text-sm inline-flex gap-3
+    }
+    .c2c_search_preview_cancel {
+        @apply w-5 h-5 cursor-pointer hover:bg-[#6b6b6b]/30 hover:rounded-full
+    }
+    th {
+        @apply capitalize
+    }
+    table, th, td{
+        @apply border-[0.1rem] border-[#d1d1d1] text-center p-3
+    }
+    tr{
+        @apply even:bg-[#0000000d]
+    }
+    .c2c_add_farmer_input {
+        @apply bg-transparent py-3 outline-none placeholder-transparent border-black/70 w-full focus:border-add_farmer_input focus:ring-0 rounded-xl text-sm
+    }
+
+    .c2c_add_farmer_label {
+        @apply absolute left-3 bg-[#ddd] text-sm px-1 -top-5 cursor-text peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 
+        transition-all peer-focus:top-0 peer-focus:text-add_farmer_input peer-placeholder-shown:text-black text-add_farmer_input
+    }
+    .c2c_add_farmer_title {
+        @apply text-center font-Lucida_Caligraphy text-2xl font-bold pt-4 pb-2 relative before:absolute before:bg-black before:bottom-0 before:w-[3rem] before:h-[0.1rem]
+    }
+    .c2c_add_farmer_container{
+        @apply my-16 bg-[#ffffffd9] rounded-[105px_0px_105px_0px] p-4 px-8 w-[55rem] absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2
+    }
+    .c2c_add_farmer_bg_overlay{
+        @apply absolute top-0 left-0 right-0 bottom-0 bg-black/70
+    }
+    .c2c_add_farmer_bg {
+        @apply bg-[url('img/crop2cash-add_farmer.jpg')] bg-cover bg-center absolute top-0 left-0 right-0 bottom-0
+    }
+    .c2c_added_crops{
+        @apply capitalize bg-gray-400 rounded-3xl px-4 py-1 text-sm hover:bg-gray-500 cursor-pointer transition-colors
+    }
+    .c2c_final_search_btn {
+        @apply bg-add_farmer_input text-white px-5 py-2 rounded-3xl mt-3
+    }
+}
