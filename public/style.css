@@ -42,20 +42,24 @@
     }
 
     .c2c_add_farmer_label {
-        @apply absolute left-3 bg-[#ddd] text-sm px-1 -top-5 cursor-text peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 
-        transition-all peer-focus:top-0 peer-focus:text-add_farmer_input peer-placeholder-shown:text-black text-add_farmer_input
+        @apply absolute left-3 bg-[#dfdfdf] text-sm px-1 -top-[0.6rem] cursor-text peer-placeholder-shown:top-[0.9rem]
+        transition-all peer-focus:-top-[0.6rem] peer-focus:text-add_farmer_input peer-placeholder-shown:text-black text-add_farmer_input
     }
+    /* .c2c_add_farmer_label {
+        @apply absolute left-3 bg-[#ddd] text-sm px-1 -top-0 cursor-text peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 
+        transition-all peer-focus:top-0 peer-focus:text-add_farmer_input peer-placeholder-shown:text-black text-add_farmer_input
+    } */
     .c2c_add_farmer_title {
-        @apply text-center font-Lucida_Caligraphy text-2xl font-bold pt-4 pb-2 relative before:absolute before:bg-black before:bottom-0 before:w-[3rem] before:h-[0.1rem]
+        @apply text-center font-Lucida_Caligraphy text-2xl font-bold pt-4 pb-2 relative before:absolute before:bg-black before:bottom-0 before:w-[3rem] before:xs:w-[2rem] before:h-[0.1rem] xs:text-sm
     }
     .c2c_add_farmer_container{
-        @apply my-16 bg-[#ffffffd9] rounded-[105px_0px_105px_0px] p-4 px-8 w-[55rem] absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2
+        @apply my-16 bg-[#ffffffd9] rounded-[105px_0px_105px_0px] p-4 px-8 w-[55rem] max-w-full absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2
     }
     .c2c_add_farmer_bg_overlay{
-        @apply absolute top-0 left-0 right-0 bottom-0 bg-black/70
+        @apply absolute top-0 left-0 right-0 bottom-0 bg-black/70 h-full
     }
     .c2c_add_farmer_bg {
-        @apply bg-[url('img/crop2cash-add_farmer.jpg')] bg-cover bg-center absolute top-0 left-0 right-0 bottom-0
+        @apply bg-[url('img/crop2cash-add_farmer.jpg')] bg-cover bg-center fixed overflow-y-auto top-0 left-0 right-0 bottom-0 w-screen h-screen
     }
     .c2c_added_crops{
         @apply capitalize bg-gray-400 rounded-3xl px-4 py-1 text-sm hover:bg-gray-500 cursor-pointer transition-colors

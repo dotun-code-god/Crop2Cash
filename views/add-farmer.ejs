@@ -11,77 +11,81 @@
 </head>
 
 <body class="my-[2%] font-Product_Sans_Regular">
-
-    <div class="c2c_add_farmer_bg"></div>
-    <div class="c2c_add_farmer_bg_overlay"></div>
-    <div>
-        <div class="flex gap-4 items-center align-middle sm:mx-[5%] mx-[3%]">
-            <div class="relative">
-                <a href="/search">
-                    <img src="img/c2c-logo.png" class="w-32" alt="crop2cash logo">
-                </a>
-                <span class="absolute bg-[#e7e7e7] w-[0.15rem] h-[calc(100%+1rem)] -right-2 -top-2"></span>
-            </div>
-            <h1 class="text-xl font-bold z-10 text-white">Add Farmer</h1>
-        </div>
-
-        <div class="c2c_add_farmer_container">
-            <h1 class="c2c_add_farmer_title">Enter Farmer Details...</h1>
-            <% if(error){ %>
-                <div class="flex justify-center mt-2">
-                    <span class="bg-red-600 text-white px-4"><%= error %></span>
+    <div class="c2c_add_farmer_bg">
+        <div class="c2c_add_farmer_bg_overlay">
+            <div>
+                <div class="flex gap-4 items-center align-middle sm:mx-[5%] mx-[3%] sm:mt-[2%] mt-[4%]">
+                    <div class="relative">
+                        <a href="/search">
+                            <img src="img/c2c-logo.png" class="w-32" alt="crop2cash logo">
+                        </a>
+                        <span class="absolute bg-[#e7e7e7] w-[0.15rem] h-[calc(100%+1rem)] -right-2 -top-2"></span>
+                    </div>
+                    <h1 class="text-xl font-bold z-10 text-white">Add Farmer</h1>
                 </div>
-            <% } %>
-            <form action="/add-farmer" method="post" class="my-8 px-8">
-                <div class="grid grid-cols-2 gap-8" id="add_farmer_input_fields">
-                    <div class="relative">
-                        <input placeholder="First Name" type="text" id="first_name" name="first_name"
-                            class="peer c2c_add_farmer_input" autoComplete="off" />
-                        <label for="first_name" class="c2c_add_farmer_label">First Name</label>
-                    </div>
-                    <div class="relative">
-                        <input placeholder="Last Name" type="text" id="last_name" name="last_name"
-                            class="peer c2c_add_farmer_input" autoComplete="off" />
-                        <label for="last_name" class="c2c_add_farmer_label">Last Name</label>
-                    </div>
-                    <div class="relative">
-                        <input placeholder="Phone Number" type="number" id="phone_number" name="phone_number"
-                            class="peer c2c_add_farmer_input" autoComplete="off" />
-                        <label for="phone_number" class="c2c_add_farmer_label">Phone Number</label>
-                    </div>
-                    <div class="relative">
-                        <input placeholder="Age" type="number" id="age" name="age" class="peer c2c_add_farmer_input"
-                            autoComplete="off" />
-                        <label for="age" class="c2c_add_farmer_label">Age</label>
-                    </div>
-                    <div class="relative">
-                        <input placeholder="Address" type="text" id="address" name="address"
-                            class="peer c2c_add_farmer_input" autoComplete="off" />
-                        <label for="address" class="c2c_add_farmer_label">Address</label>
-                    </div>
-                    <div class="relative">
-                        <input placeholder="Crops" type="text" id="crops" class="peer c2c_add_farmer_input"
-                            autoComplete="off" />
-                        <input placeholder="Crops" type="hidden" name="crops"
-                            autoComplete="off" />
-                        <label for="crops" class="c2c_add_farmer_label">Crops</label>
-                        <div class="right-0 mt-1 absolute flex items-center cursor-pointer" id="add_more_crops">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <span class="text-sm">Add</span>
+            
+                <div class="c2c_add_farmer_container">
+                    <h1 class="c2c_add_farmer_title">Enter Farmer Details...</h1>
+                    <% if(error){ %>
+                        <div class="flex justify-center mt-2">
+                            <span class="bg-red-600 text-white px-4">
+                                <%= error %>
+                            </span>
                         </div>
-                    </div>
+                    <% } %>
+                    <form action="/add-farmer" method="post" class="sm:my-8 my-5 sm:px-8 px-4">
+                        <div class="grid sm:grid-cols-2 grid-cols-1 sm:gap-8 gap-4" id="add_farmer_input_fields">
+                            <div class="relative">
+                                <input placeholder="First Name" type="text" id="first_name" name="first_name"
+                                    class="peer c2c_add_farmer_input" autoComplete="off" />
+                                <label for="first_name" class="c2c_add_farmer_label">First Name</label>
+                            </div>
+                            <div class="relative">
+                                <input placeholder="Last Name" type="text" id="last_name" name="last_name"
+                                    class="peer c2c_add_farmer_input" autoComplete="off" />
+                                <label for="last_name" class="c2c_add_farmer_label">Last Name</label>
+                            </div>
+                            <div class="relative">
+                                <input placeholder="Phone Number" type="number" id="phone_number" name="phone_number"
+                                    class="peer c2c_add_farmer_input" autoComplete="off" />
+                                <label for="phone_number" class="c2c_add_farmer_label">Phone Number</label>
+                            </div>
+                            <div class="relative">
+                                <input placeholder="Age" type="number" id="age" name="age" class="peer c2c_add_farmer_input"
+                                    autoComplete="off" />
+                                <label for="age" class="c2c_add_farmer_label">Age</label>
+                            </div>
+                            <div class="relative">
+                                <input placeholder="Address" type="text" id="address" name="address"
+                                    class="peer c2c_add_farmer_input" autoComplete="off" />
+                                <label for="address" class="c2c_add_farmer_label">Address</label>
+                            </div>
+                            <div class="relative">
+                                <input placeholder="Crops" type="text" id="crops" class="peer c2c_add_farmer_input"
+                                    autoComplete="off" />
+                                <input placeholder="Crops" type="hidden" name="crops" autoComplete="off" />
+                                <label for="crops" class="c2c_add_farmer_label">Crops</label>
+                                <div class="right-0 mt-1 absolute flex items-center cursor-pointer" id="add_more_crops">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span class="text-sm">Add</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-center mt-6">
+                            <button type="submit" class="bg-[#a3cd04] px-5 py-3 rounded-3xl text-white">Add Farmer</button>
+                        </div>
+                    </form>
+                    <p class="text-sm text-center text-[#717171]">
+                        By submiting you agree to our <a href="" class="underline text-blue-600">terms and conditions</a>
+                    </p>
                 </div>
-                <div class="flex justify-center mt-6">
-                    <button type="submit" class="bg-[#a3cd04] px-5 py-3 rounded-3xl text-white">Add Farmer</button>
-                </div>
-            </form>
-            <p class="text-sm text-center text-[#717171]">
-                By submiting you agree to our <a href="" class="underline text-blue-600">terms and conditions</a>
-            </p>
+            </div>
         </div>
+        
     </div>
 
     <script src="js/jquery.min.js"></script>
