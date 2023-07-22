@@ -22,7 +22,7 @@ app.post('/add-farmer', async (req, res) => {
         }
     }
     if (await Farmer.save(data))
-        return res.redirect('/');
+        return res.redirect('/search');
 })
 
 app.get('/search', async (req, res) => {

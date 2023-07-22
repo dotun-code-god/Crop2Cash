@@ -742,11 +742,6 @@ tr:nth-child(even) {
   color: rgb(195 155 24 / var(--tw-text-opacity));
 }
 
-/* .c2c_add_farmer_label {
-        @apply absolute left-3 bg-[#ddd] text-sm px-1 -top-0 cursor-text peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 
-        transition-all peer-focus:top-0 peer-focus:text-add_farmer_input peer-placeholder-shown:text-black text-add_farmer_input
-    } */
-
 .c2c_add_farmer_title {
   position: relative;
   padding-top: 1rem;

@@ -3,7 +3,7 @@ $(function(){
     $("#crops").keydown(function(e){
         if (e.keyCode === 13) {
             e.preventDefault(); 
-            $(this).next().click();
+            $("#add_more_crops").click();
         }
     })
     $("#general_keyword_txt").keydown(function(e){
