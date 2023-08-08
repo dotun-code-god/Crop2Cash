@@ -36,11 +36,12 @@ app.get('/search', async (req, res) => {
         }
         data['attr'] = category;
         crops.length ? data['crops'] = crops : '';
-        let farmers = await Farmer.retrieveFarmers(data);
-        return res.render('index', { farmers });
+        let filteredFarmers = await Farmer.retrieveFarmers(data); 
+        let farmers = await Farmer.retrieveAllFarmers();
+        return res.render('index', { farmers : filteredFarmers, farmersLength : farmers.length });
     } else {
         let farmers = await Farmer.retrieveAllFarmers();
-        res.render('index', {farmers});
+        res.render('index', { farmers, farmersLength: farmers.length });
     }
 })
 

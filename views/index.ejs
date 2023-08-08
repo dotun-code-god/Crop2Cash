@@ -105,14 +105,23 @@
                 <h1 class="text-lg font-semibold uppercase">Farmer's Record</h1>
                 <span class="absolute bg-black w-[2rem] h-[0.1rem]"></span>
             </div>
-            <div>
+            <div class="flex items-center gap-4">
+                <% if(farmers.length) { %>
+                        <p class="bg-green-600 px-4 py-1 rounded-3xl text-white">
+                            <%= farmers.length %> out of <%= farmersLength %> farmers found
+                        </p>
+                    <% } else { %>
+                        <p class="bg-red-600 px-4 py-1 rounded-3xl text-white">
+                            No farmer found
+                        </p>
+                <% } %>
                 <a href="/search"
-                    class="border-2 border-c2c_primary text-c2c_primary px-4 py-1 rounded-3xl">
+                    class="border-2 border-c2c_primary text-c2c_primary px-4 py-1 rounded-3xl hover:bg-c2c_primary hover:text-white transition-colors">
                     View All
                 </a>
             </div>
         </div>
-        <% if(farmers.length){ %>
+        <% if(farmersLength) { %>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <tr>
