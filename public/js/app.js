@@ -80,7 +80,10 @@ $(function(){
         }
     })
 
+    let expectedCategories = ["first name", "last name", "phone number", "age", "address", "crops"];
+    
     $("#_category").change(function (e) {
+        if(!expectedCategories.includes($(this).val().toLowerCase())) return;
         if(!$("#search_form").length) $("#search").after('<form action="/search" id="search_form" class="hidden"></form>');
         let formattedVal = $(this).val().replace(' ', '_').toLowerCase();
         if($(this).val()) {

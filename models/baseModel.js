@@ -62,7 +62,6 @@ class Farmer {
             }
         }
         condition = condition.length ? 'WHERE ' + condition.join(' AND ') : '';
-        let sql = `SELECT ${attributes} from farmers ${condition}`;
         let farmers = await query(`SELECT ${attributes} from farmers ${condition}`);
         farmers.forEach(farmer => {
             if(farmer.crops){
